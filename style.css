@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Oswald', sans-serif;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    /* background: #30d5e2;background: rgba(51,90,111,1); */
+    background: rgba(51,90,111,1);
+}
+
+::-webkit-scrollbar-track {
+    background: #221a2e;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background: linear-gradient(185deg, rgba(51,90,111,1) 0%, rgba(51,22,48,1) 100%);
+    color: white;
+}
+
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+img {
+    width: 100%;
+}
+
+.logo {
+    max-width: 200px;
+    padding-bottom: 30px;
+}
+
+main {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 20px;
+}
+
+.option {
+    position: relative;
+    width: 280px;
+    height: 240px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #221a2e;
+    margin: 10px;
+    border-radius: 16px;
+    box-shadow: 0 0 20px 0 #221a2e;
+    overflow: hidden;
+    opacity: 0.4;
+    transition: 0.5s all ease;
+}.option:hover, .option.active {
+    transform: scale(1.05);
+    opacity: 1;
+}
+.option h2 {
+    position: absolute;
+    top: 4px;
+    transform: translateY(-100%);
+    transition: 0.4s all ease;
+}
+.options .option:nth-child(1) h2 {
+    color: aqua;
+}
+.options .option:nth-child(2) h2 {
+    color: #f0a0d0;
+}
+.options .option:nth-child(3) h2 {
+    color: #f9b172;
+}
+.option:hover h2, .option.active h2 {
+    transform: translateY(0);
+}
+.option img {
+    mix-blend-mode:screen;
+}
+.choice::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: white;
+    opacity: 0;
+    transition: 0.4s all ease;
+}.choice:hover::before, .choice.active::before {
+    opacity: 1;
+}
+
+.computer {
+    border-left: 1px solid white;
+    padding-left: 20px;
+}
+.compu-choice {
+    border: 3px dashed white;
+    opacity: 1;
+}
+.compu-choice.active {
+    transform: rotateY(180deg);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #221a2eeb;
+    padding: 0 20px;
+    transform: translateY(-150%);
+    transition: 0.5s all ease;
+}.modal.active {
+    transform: translateY(0);
+}
+.modal .result {            
+    background: #cecece;
+    color: #221a2e;
+    padding: 0 20px;
+    border-radius: 16px;
+    text-align: center;
+}
+#close {
+    font-size: 20px;
+    margin-top: 20px;
+    opacity: 0.6;
+    transition: 0.5s all ease;
+}#close:hover {
+    transform: rotate(360deg);
+    opacity: 1;
+}
+.modal .result div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}.modal .result span, .modal .verdict {
+    text-transform: uppercase;
+}.modal .resume {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}.modal .resume .mini  {
+    width: 50px;
+    height: 50px;
+    background: #221a2e;
+    margin-top: 12px;
+    border-radius: 100%;
+}.modal #itsImg{
+    transform: rotateY(180deg);
+}
+.modal .verdict {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-top: 1px solid #221a2e;
+    text-align: center;
+}
+
+#stars-container {
+    z-index: -1;
+}
+.star {
+    width: 5px;
+    height: 5px;
+    background: #cecece;
+    margin: 5px;
+    border-radius: 50%;
+    box-shadow: 0 0 10px 0 #fff;
+}
+
+#stars-container div:nth-child(2n+1) {
+    width: 3px;
+    height: 3px;
+}
+
+@media screen and (max-width: 1250px) {
+    header {
+        padding-top: 20px;
+    }
+    .options {
+        flex-direction: column;
+        padding: 20px 20px 20px 0;
+    }
+    .computer {
+        border: none;
+    }
+}
+@media screen and (max-width: 660px) {
+    .logo {
+        width: 160px;
+    }
+    .option {
+        width: 210px;
+        height: 180px;
+    }.option h2 {
+        font-size: 20px;
+    }
+}        
+@media screen and (max-width: 510px) {            
+    main {
+        flex-direction: column;
+    }
+    .options {                
+        padding: 20px 0;
+    }
+    .computer {
+        border-top: 1px solid white;
+        padding: 20px 0;
+    }
+}

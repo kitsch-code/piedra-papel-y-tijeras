@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piedra, papel y tijeras</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/52d5f67052.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="stars-container"></div>
+    <header>
+        <div class="logo">
+            <img src="img/logo.png" alt="logo juego piedra papel y tijeras">
+        </div>
+        <p>Para poder jugar contra mí (computadora), elije una de las siguientes opciones</p>
+        <p>SUERTE Y QUE EL MEJOR GANE!! ;)</p>
+    </header>
+
+    <main>
+        <div class="options">
+            <div class="option choice" id="rock" data-name="piedra">
+                <h2>PIEDRA</h2>
+                <img src="img/piedra.png" alt="mano seña piedra juego">
+            </div>
+            <div class="option choice" id="paper" data-name="papel">
+                <h2>PAPEL</h2>
+                <img src="img/papel.png" alt="mano seña papel juego">
+            </div>
+            <div class="option choice" id="scissors" data-name="tijeras">
+                <h2>TIJERAS</h2>
+                <img src="img/tijeras.png" alt="mano seña tijeras juego">
+            </div>
+        </div>
+        <div class="computer">
+            <div class="option compu-choice" id="compu-choice">
+                <h3 id="text">COMPUTADORA</h3>
+            </div>
+        </div>
+    </main>
+    <aside class="modal" id="modal">
+        <div class="result">
+            <div>
+                <div class="resume">
+                    <p>
+                        Tu (humano): <br>
+                        <span id="urText"></span>
+                    </p>
+                    <img class="mini" id="urImg" alt="">
+                </div>
+                <h2>VS</h2>
+                <div class="resume">
+                    <p>
+                        Yo (compu): <br>
+                        <span id="itsText"></span>
+                    </p>
+                    <img class="mini" id="itsImg" alt="">
+                </div>
+            </div>
+            <div class="verdict">
+                <h2 id="verdict"></h2>
+            </div>
+        </div>
+        <i class="fa-solid fa-circle-xmark" id="close" title="Jugar de nuevo"></i>
+    </aside>
+
+    <script src="game.js"></script>
+</body>
+</html>
