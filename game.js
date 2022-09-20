@@ -42,17 +42,17 @@ var available = ['piedra', 'papel', 'tijeras'];
 var random;
 var compu = document.getElementById('compu-choice');
 var compuChoice = new Image();
-var urText = document.getElementById('urText');
-var urImg = document.getElementById('urImg');
+var userTxt = document.getElementById('userText');
+var userImg = document.getElementById('userImg');
 
 choices.forEach(choice => {
     choice.addEventListener('click', () => {
         reset();
         choice.classList.add('active');    
-        urText.innerText = choice.dataset.name;
-        urImg.src = 'img/' + choice.dataset.name + '.png';
+        userTxt.innerText = choice.dataset.name;
+        userImg.src = 'img/' + choice.dataset.name + '.png';
         computerChoice();
-        modal();
+        game();
     });
 });
 
@@ -65,35 +65,50 @@ function computerChoice() {
     compu.appendChild(compuChoice);
 }
 
-var closeModal = document.getElementById('close');
-var modalWindow = document.getElementById('modal');
-var itsText = document.getElementById('itsText');
+var itsScore = 0;
+var userScore = 0;
+var uScore = document.getElementById('userScore');
+var iScore = document.getElementById('itsScore')
+var itsScoreTxt = document.getElementById('itsScore');
+var floatWindow = document.getElementById('floating');
+var itsTxt = document.getElementById('itsText');
 var itsImg = document.getElementById('itsImg');
 var verdict = document.getElementById('verdict');
-function modal(){
-    modalWindow.classList.add('active');
-    itsText.innerText = available[random];
+function game(){
+    floatWindow.classList.add('active');
+    itsTxt.innerText = available[random];
     itsImg.src = 'img/' + available[random] + '.png';
 
-    var urChoice = urText.innerHTML;
-    var itsChoice = itsText.innerHTML;
-    console.log(urChoice, itsChoice);
-    if (urChoice == itsChoice) {
+    var userChoice = userText.innerHTML;
+    var itsChoice = itsTxt.innerHTML;
+    if (userChoice == itsChoice) {
         verdict.innerText = 'Señores, esto es empateee!!';
     }else if (
-        urChoice == 'piedra' && itsChoice == 'papel' ||
-        urChoice == 'papel' && itsChoice == 'tijeras' ||
-        urChoice == 'tijeras' && itsChoice == 'piedra'
+        userChoice == 'piedra' && itsChoice == 'papel' ||
+        userChoice == 'papel' && itsChoice == 'tijeras' ||
+        userChoice == 'tijeras' && itsChoice == 'piedra'
         ) {
         verdict.innerText = 'Eres papilla, suerte a la próxima';
+        itsScore += 1;
+        iScore.innerText = itsScore;
     }else {
-        verdict.innerText = 'Auch! me ganaste jugador humano';
+        verdict.innerText = 'Auch!, eso dolió, no ganarás de nuevo';
+        userScore += 1;
+        uScore.innerText = userScore;
     }
 
-    closeModal.addEventListener('click', () => {
-        modalWindow.classList.remove('active');
+    if (userScore == 3) {
+        verdict.innerText = 'Felicidades! ganaste el juego... esta vez, revancha?';
+        restart();
+    }else if (itsScore == 3) {
+        verdict.innerText = 'Muajaja, sabía que podría vencerte, juguemos de nuevo';
+        restart();
+    }
+
+    setTimeout(function(){
+        floatWindow.classList.remove('active');
         reset();
-    });
+    }, 5000);
 }
 
 function reset(){
@@ -102,4 +117,13 @@ function reset(){
     }    
     document.querySelector('h3').style.display = 'unset';
     compuChoice.src = '';
+}
+
+function restart() {
+    setTimeout(function(){
+        iScore.innerText = 0;
+        uScore.innerText = 0;
+        userScore = 0;
+        itsScore = 0;
+    }, 5000);
 }

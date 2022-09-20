@@ -20,8 +20,25 @@
         <div class="logo">
             <img src="img/logo.png" alt="logo juego piedra papel y tijeras">
         </div>
-        <p>Para poder jugar contra mí (computadora), elije una de las siguientes opciones</p>
-        <p>SUERTE Y QUE EL MEJOR GANE!! ;)</p>
+
+        <div class="score">
+            <div class="resume">
+                <p>
+                    Tu score: <br>
+                    <div>
+                        <span class="number-score" id="userScore">0</span>/3
+                    </div>
+                </p>
+            </div>
+            <div class="resume">
+                <p>
+                    Compu score: <br>
+                    <div>
+                        <span class="number-score" id="itsScore">0</span>/3
+                    </div>
+                </p>
+            </div>
+        </div>
     </header>
 
     <main>
@@ -45,15 +62,15 @@
             </div>
         </div>
     </main>
-    <aside class="modal" id="modal">
+    <div class="floating" id="floating">
         <div class="result">
             <div>
                 <div class="resume">
                     <p>
                         Tu (humano): <br>
-                        <span id="urText"></span>
+                        <span id="userText"></span>
                     </p>
-                    <img class="mini" id="urImg" alt="">
+                    <img class="mini" id="userImg" alt="">
                 </div>
                 <h2>VS</h2>
                 <div class="resume">
@@ -68,8 +85,7 @@
                 <h2 id="verdict"></h2>
             </div>
         </div>
-        <i class="fa-solid fa-circle-xmark" id="close" title="Jugar de nuevo"></i>
-    </aside>
+    </div>
 
     <script src="game.js"></script>
 </body>
