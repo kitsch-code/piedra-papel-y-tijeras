@@ -1,4 +1,4 @@
-# Piedra-papel-y-tijeras
+# [Juego] Piedra papel y tijeras
 
 // 1er Reto del curso básico en Platzi con JS
 
