@@ -9,7 +9,7 @@ function sizes() {
 }
 
 let starsContainer = document.getElementById('stars-container')
-let numStars = 40;
+let numStars = 50;
 let star;
 
 function drawElements() {
@@ -74,6 +74,8 @@ var floatWindow = document.getElementById('floating');
 var itsTxt = document.getElementById('itsText');
 var itsImg = document.getElementById('itsImg');
 var verdict = document.getElementById('verdict');
+var playAgain = document.getElementById('again');
+
 function game(){
     floatWindow.classList.add('active');
     itsTxt.innerText = available[random];
@@ -98,17 +100,24 @@ function game(){
     }
 
     if (userScore == 3) {
-        verdict.innerText = 'Felicidades! ganaste el juego... esta vez, revancha?';
-        restart();
+        verdict.innerText = 'Felicidades! ganaste el juego... ¿revancha?';
+        playAgain.classList.remove('fa-xmark');
+        playAgain.classList.add('fa-rotate-right');
     }else if (itsScore == 3) {
         verdict.innerText = 'Muajaja, sabía que podría vencerte, juguemos de nuevo';
-        restart();
+        playAgain.classList.remove('fa-xmark');
+        playAgain.classList.add('fa-rotate-right');
     }
 
-    setTimeout(function(){
+    playAgain.addEventListener('click', () => {
         floatWindow.classList.remove('active');
-        reset();
-    }, 5000);
+        setTimeout(function(){
+            reset();
+        }, 800);
+        if (playAgain.classList.contains('fa-rotate-right')) {
+            restart();
+        }
+    });
 }
 
 function reset(){
@@ -125,5 +134,7 @@ function restart() {
         uScore.innerText = 0;
         userScore = 0;
         itsScore = 0;
-    }, 5000);
+        playAgain.classList.remove('fa-rotate-right');
+        playAgain.classList.add('fa-xmark');
+    }, 800);
 }
