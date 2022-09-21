@@ -1,6 +1,6 @@
 # piedra-papel-y-tijeras
 
-// Reto de curso básico en Platzi con JS
+// 1er Reto de curso básico en Platzi con JS
 
 Juega contra mí (la computadora), el clásico juego de piedra, papel y tijeras
 
