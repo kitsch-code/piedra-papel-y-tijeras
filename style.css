@@ -99,6 +99,7 @@ main {
     transition: 0.5s all ease;
 }.option:hover, .option.active {
     transform: scale(1.05);
+    -webkit-transform: scale(1.05);
     opacity: 1;
 }
 .option h2 {
@@ -106,6 +107,7 @@ main {
     top: 4px;
     font-size: 20px;
     transform: translateY(-100%);
+    -webkit-transform: translateY(-100%);
     transition: 0.4s all ease;
 }
 .options .option:nth-child(1) h2 {
@@ -119,6 +121,7 @@ main {
 }
 .option:hover h2, .option.active h2 {
     transform: translateY(0);
+    -webkit-transform: translateY(0);
 }
 .option img {
     mix-blend-mode:screen;
@@ -131,8 +134,9 @@ main {
     border: 3px dashed white;
     opacity: 1;
 }
-.compu-choice.active {
+.compu-choice.active, .floating #itsImg {
     transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
 }
 
 .floating {
@@ -147,9 +151,12 @@ main {
     background: #221a2ec1;
     padding: 0 20px;
     transform: translateY(100%);
+    -webkit-transform: translateY(100%);
+    z-index: 2;
     transition: 0.5s all ease;
 }.floating.active {
     transform: translateY(0);
+    -webkit-transform: translateY(0);
 }
 .floating .result {
     background: #cecece;
@@ -173,6 +180,7 @@ main {
     transition: 0.5s all ease;
 }.floating .again:hover {
     transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
 }
 .floating .result div {
     display: flex;
@@ -191,8 +199,6 @@ main {
     background: #221a2e;
     margin-top: 12px;
     border-radius: 100%;
-}.floating #itsImg{
-    transform: rotateY(180deg);
 }
 .floating .verdict {
     display: flex;
